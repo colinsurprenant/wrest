@@ -9,8 +9,8 @@
 
 module Wrest::Native
   module ConnectionFactory
-    def create_connection(options = {:timeout => 60, :verify_mode => OpenSSL::SSL::VERIFY_NONE})
-      options[:timeout] ||= 60
+    def create_connection(options = {:timeout => 300, :verify_mode => OpenSSL::SSL::VERIFY_NONE})
+      options[:timeout] ||= 300
       connection = Net::HTTP.new(self.host, self.port)
       connection.read_timeout = options[:timeout]
       if self.https?
